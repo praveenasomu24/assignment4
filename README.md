@@ -120,16 +120,16 @@ Purpose:
 ## Screenshots
 
 ### Login Screen
-(Add screenshot here)
+
 
 ### Cloud Notes Screen
-(Add screenshot here)
+
 
 ### AWS Cognito Setup
-(Add screenshot here)
+
 
 ### DynamoDB Table Creation
-(Add screenshot here)
+
 
 ---
 
