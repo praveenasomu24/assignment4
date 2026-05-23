@@ -1,3 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Assignment4</string>
+
+    <string name="app_name">Cloud Notes</string>
+    <string name="cloud_notes">Cloud Notes</string>
+    <string name="enter_your_note">Enter your note</string>
+    <string name="save_note">Save Note</string>
+    <string name="logout">Logout</string>
+    <string name="saved_notes_appear_here">Saved notes appear here</string>
+
 </resources>

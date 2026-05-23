@@ -1,39 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:gravity="center"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:padding="20dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:text="Cloud Notes Login"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="30dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <EditText
-        android:id="@+id/emailInput"
-        android:hint="Email"
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/passwordInput"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:layout_marginTop="15dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:text="Cloud Notes Login"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-    <Button
-        android:id="@+id/loginButton"
-        android:text="Login"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/emailInput"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/passwordInput"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/codeInput"
+            android:hint="Confirmation Code"
+            android:inputType="number"
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/signUpButton"
+            android:text="Sign Up"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/confirmButton"
+            android:text="Confirm Sign Up"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/loginButton"
+            android:text="Sign In"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+</ScrollView>
