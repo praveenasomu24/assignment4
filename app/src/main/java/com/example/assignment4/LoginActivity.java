@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.amplifyframework.auth.AuthUserAttributeKey;
 import com.amplifyframework.auth.options.AuthSignUpOptions;
 import com.amplifyframework.core.Amplify;
 
@@ -29,9 +30,24 @@ public class LoginActivity extends AppCompatActivity {
         confirmButton = findViewById(R.id.confirmButton);
         loginButton = findViewById(R.id.loginButton);
 
+        checkExistingSession();
+
         signUpButton.setOnClickListener(v -> signUpUser());
         confirmButton.setOnClickListener(v -> confirmUser());
         loginButton.setOnClickListener(v -> signInUser());
+    }
+
+    private void checkExistingSession() {
+        Amplify.Auth.fetchAuthSession(
+                result -> runOnUiThread(() -> {
+                    if (result.isSignedIn()) {
+                        showToast("Already signed in");
+                        openMainActivity();
+                    }
+                }),
+                error -> runOnUiThread(() ->
+                        showToast("Session check failed"))
+        );
     }
 
     private void signUpUser() {
@@ -44,10 +60,7 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         AuthSignUpOptions options = AuthSignUpOptions.builder()
-                .userAttribute(
-                        com.amplifyframework.auth.AuthUserAttributeKey.email(),
-                        email
-                )
+                .userAttribute(AuthUserAttributeKey.email(), email)
                 .build();
 
         Amplify.Auth.signUp(
@@ -95,7 +108,7 @@ public class LoginActivity extends AppCompatActivity {
                 result -> runOnUiThread(() -> {
                     if (result.isSignedIn()) {
                         showToast("Login successful");
-                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        openMainActivity();
                     } else {
                         showToast("Additional login step required");
                     }
@@ -103,6 +116,12 @@ public class LoginActivity extends AppCompatActivity {
                 error -> runOnUiThread(() ->
                         showToast("Login failed: " + error.getLocalizedMessage()))
         );
+    }
+
+    private void openMainActivity() {
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private void showToast(String message) {
